@@ -1,0 +1,1 @@
+var notificationsJs = new Notifications();

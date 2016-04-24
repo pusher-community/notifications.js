@@ -27,7 +27,6 @@ var notifications = new Notifications({
   // function called when a new message is shown
   onShow: function(message) {...}
 
-
   // optional, but if set will render notifications from events on a Pusher channel
   pusher: {
     instance: pusher,
@@ -43,6 +42,7 @@ var notifications = new Notifications({
 
 // if you're not using Pusher, you'll get an API to send messages to:
 // this will add the new message and immediately show it
+// you can pass either a string or an HTML Element
 notifications.push('This is a new message');
 
 // general API
