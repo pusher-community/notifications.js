@@ -28,12 +28,13 @@ var notifications = new Notifications({
   onShow: function(message) {...}
 
 
-  // optional, but if set will render notifications
+  // optional, but if set will render notifications from events on a Pusher channel
   pusher: {
     instance: pusher,
-    channel: 'notifications',
-    event: 'new-notification',
+    channelName: 'notifications',
+    eventName: 'new-notification',
     // used to tell Notification.js what string to show in the notification, from the Pusher event
+    // you could also return a DOM Element here instead
     transform: function(event) {
       return 'New message: ' + event.text;
     }
