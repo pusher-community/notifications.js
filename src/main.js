@@ -1,8 +1,10 @@
 import merge from 'lodash/merge';
+
 import template from 'lodash/template';
 import Message from './message';
 
 import notificationTemplate from 'raw!./template.html';
+import { onAnimationEnd } from './animate';
 
 const DEFAULT_OPTIONS = {
   targetDOMElement: '#notifications',

@@ -1,7 +1,8 @@
+import { onAnimationEnd } from './animate';
+
 class Message {
   constructor({
     string,
-    index,
     target,
     template,
     notificationClasses,
@@ -46,8 +47,13 @@ class Message {
 
   remove() {
     if (!this.removed) {
-      this.removed = true;
-      this.target.removeChild(this.element);
+
+      onAnimationEnd(this.element, () => {
+        this.removed = true;
+        this.target.removeChild(this.element);
+      });
+
+      this.element.classList.add('fadeOut', 'animated');
     }
   }
 }
