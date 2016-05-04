@@ -42,7 +42,6 @@ var notifications = new Notifications({
 
 // if you're not using Pusher, you'll get an API to send messages to:
 // this will add the new message and immediately show it
-// you can pass either a string or an HTML Element
 notifications.push('This is a new message');
 
 // general API
