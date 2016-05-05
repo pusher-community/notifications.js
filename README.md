@@ -100,3 +100,16 @@ These are passed as an object to `new Notification({...})`. The shown values bel
     - `eventName: ''`: the event name to listen for
     - `transform: function(event) {}`: the function that transforms data from a Pusher event into a string for the notification.
 
+      
+## API
+
+### `push(text, { classes: [] })`
+
+Once you have created a new instance of the library you can add messages using `push`. This also lets you pass in any classes you'd like applied just to this notification - useful for styling different types of notification differently.
+
+```javascript
+var notifications = new Notifications({...});
+notifications.push('New message', {
+  classes: ['warning']
+});
+
