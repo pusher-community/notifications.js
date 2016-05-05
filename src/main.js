@@ -34,11 +34,22 @@ class Notifications {
     this.messages = [];
     this.targetElement = document.querySelector(this.config.targetDOMElement);
     this.templateFn = template(this.config.template);
+
+    if (!!this.config.pusher.instance) {
+      this.bindPusher(this.config.pusher);
+    }
   }
 
-  push(data) {
+  bindPusher({ instance, channelName, eventName, transform }) {
+    const channel = instance.subscribe(channelName);
+    channel.bind(eventName, (data) => {
+      this.createNewMessage(transform(data));
+    });
+  }
+
+  createNewMessage(text) {
     const message = new Message({
-      text: data,
+      text,
       target: this.targetElement,
       template: this.templateFn,
       notificationClasses: this.config.notificationClasses,
@@ -54,6 +65,10 @@ class Notifications {
       message.render();
       this.config.onShow(message);
     }
+  }
+
+  push(text) {
+    this.createNewMessage(text);
   }
 }
 

@@ -56,6 +56,27 @@ notifications.push('Hello World');
 
 If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.
 
+# Using Pusher for Notifications
+
+If you want your notifications to be powered by events on a Pusher channel then you can supply the library with your instance of Pusher and tell it which events to listen to:
+
+```javascript
+var pusher = new Pusher('YOUR_PUSHER_APP_KEY');
+
+var notifications = new Notifications({
+  pusher: {
+    instance: pusher,
+    channelName: 'notifications',
+    eventName: 'new-notification',
+    transform: (event) => {
+      return 'New notification! ' + event.text;
+    }
+  }
+});
+```
+
+You'll need to include Pusher either from npm or using a script tag. NotificationsJS does not include Pusher as a dependency.
+
 
 # Full API Documentation
 
