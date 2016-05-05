@@ -1,5 +1,7 @@
 import { onAnimationEnd } from './animate';
 
+let indexCount = 0;
+
 class Message {
   constructor({
     text,
@@ -18,12 +20,14 @@ class Message {
     this.animations = animations;
     this.notificationClasses = notificationClasses;
     this.text = text;
+    this.index = indexCount++;
 
     this.element = this.makeElement({
       template,
       notificationClasses,
       animations,
-      text
+      text,
+      index: this.index
     });
   }
 
@@ -31,10 +35,12 @@ class Message {
     template,
     notificationClasses,
     animations,
-    text
+    text,
+    index
   }) {
     const div = document.createElement('div');
 
+    div.setAttribute('data-notifications-index', index);
     div.classList.add(...notificationClasses);
 
     if (this.animations.on) {
@@ -47,7 +53,7 @@ class Message {
   }
 
   bindOnClose() {
-    const close = document.querySelector('[data-notifications-close]');
+    const close = document.querySelector(`[data-notifications-index="${this.index}"] [data-notifications-close]`);
     close.addEventListener('click', (evt) => {
       evt.preventDefault();
       this.remove();
@@ -74,8 +80,8 @@ class Message {
     if (!this.removed) {
 
       onAnimationEnd(this.element, () => {
+        if (!this.removed) this.target.removeChild(this.element);
         this.removed = true;
-        this.target.removeChild(this.element);
       });
 
       this.element.classList.add(...this.animations.animateOutClasses);

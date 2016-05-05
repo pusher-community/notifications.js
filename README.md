@@ -76,6 +76,30 @@ var notifications = new Notifications({
 
 You'll need to include Pusher either from npm or using a script tag. NotificationsJS does not include Pusher as a dependency.
 
+# Customising the Notification HTML
+
+NotificationJS ships with a simple template that shows the notification text and a close button. You may wish to customise this, and you can provide a function that will do this. This function takes an object as its argument with a property `text`, which is the text of the notification. It should return a string of HTML. This is one place where ES2015 template strings come in really handy:
+
+```js
+var templateFn = function(obj) {
+  return `
+    <div>
+      New! <span>${text}</span>
+      <a href="" class="notification-close" data-notifications-close>&times;</a>
+    </div>
+  `;
+};
+```
+
+Be sure to add the `data-notifications-close` attribute on the close element so the library can wire up the close event correctly.
+
+You can pass this to NotificationsJS under the `template` option:
+
+```js
+new Notifications({
+  template: templateFn
+});
+```
 
 # Full API Documentation
 
