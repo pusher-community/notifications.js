@@ -89,53 +89,14 @@ These are passed as an object to `new Notification({...})`. The shown values bel
     - `on: true`: whether to use animate.css to animate items in and out.
     - `animateInClasses: ['fadeIn']`: the classes to apply to animate a notification in.
     - `animateOutClasses: ['fadeOut']`: the classes to apply to animate a notification out
-```javascript
+- `onClose: function() {}`: a function called when a notification is closed.
+- `onShow: function() {}`: a function called with a notification is shown.
+- `onNewMessage: function(message) {}`: a function called when a new message is added. Useful for integrating with other frameworks.
+- `template: function({ text }) {}`: a function used to create the HTML string for the contents of the notification. See "Custom templates" documentation above.
+- `shouldRender: true`: set this to `false` to stop notifications being rendered, primarily useful if you're using another framework.
+- `pusher`: an object with settings for the Pusher integration. See "Using Pusher for Notifications".
+    - `instance: null`: the instance of PusherJS.
+    - `channelName: ''`: the channel name to listen to
+    - `eventName: ''`: the event name to listen for
+    - `transform: function(event) {}`: the function that transforms data from a Pusher event into a string for the notification.
 
-
-
-
-```js
-
-var pusher = new Pusher(...);
-
-var notifications = new Notifications({
-  // where to place notifications
-  targetDOMElement: '#notifications',
-
-  // close after X millseconds
-  closeAfter: 5000,
-
-  // how many notifications to show at once:
-  showMax: 5,
-
-  // array of classes to give each notification
-  notificationClasses: ['my-notification'],
-
-  // function called when a message is closed
-  onClose: function(message) {...}
-
-  // function called when a new message is shown
-  onShow: function(message) {...}
-
-  // optional, but if set will render notifications from events on a Pusher channel
-  pusher: {
-    instance: pusher,
-    channelName: 'notifications',
-    eventName: 'new-notification',
-    // used to tell Notification.js what string to show in the notification, from the Pusher event
-    transform: function(event) {
-      return 'New message: ' + event.text;
-    }
-  }
-});
-
-// if you're not using Pusher, you'll get an API to send messages to:
-// this will add the new message and immediately show it
-notifications.push('This is a new message');
-
-// general API
-notifications.onNewMessage(function() {
-  // do something when a new message is added
-  // this will be useful for hooking into other libraries (React, etc)
-});
-```
