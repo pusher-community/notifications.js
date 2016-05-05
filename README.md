@@ -16,7 +16,6 @@ You can install NotificationsJS in a number of ways:
 
 1. Grab the built version from the `lib` directory of this repository. NotificationsJS will expose `window.Notifications`. You'll also need to install animate.css and grab `lib/style.css` too.
 2. Install through npm: `npm install --save notificationsjs`. This includes animate.css and the default CSS styles.
-```
 
 Now you can create a new instance of Notifications:
 
