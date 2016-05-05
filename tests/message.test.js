@@ -1,4 +1,5 @@
 import test from 'ava';
+import { Double } from 'doubler';
 import Notifications from '../src/main';
 
 test('Animate.css usage is on by default', t => {
@@ -39,4 +40,16 @@ test('you can apply CSS on a per message basis', t => {
   });
 
   t.true(instance.messages[0].element.classList.contains('warning'));
+});
+
+test('onNewMessage is called with the new message', t => {
+  const fn = Double.function();
+  const instance = new Notifications({
+    shouldRender: false,
+    onNewMessage: fn
+  });
+  instance.push('hello');
+
+  t.is(fn.callCount, 1);
+  t.is(fn.args[0][0].text, 'hello');
 });
