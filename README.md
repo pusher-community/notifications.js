@@ -136,4 +136,11 @@ var notifications = new Notifications({...});
 notifications.push('New message', {
   classes: ['warning']
 });
+```
+
+## Changelog
+
+### 0.1.0
+- initial release!
+
 
