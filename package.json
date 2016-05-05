@@ -7,7 +7,8 @@
     "webpack-dev": "webpack -w --config webpack.dev.js",
     "example-dev": "live-server --port=8001",
     "webpack-prod": "webpack --progress --config webpack.prod.js",
-    "prepublish": "npm run webpack-prod"
+    "build": "npm run webpack-prod && cp src/style.css lib",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
