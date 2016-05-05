@@ -1,9 +1,7 @@
 import merge from 'lodash/merge';
-
-import template from 'lodash/template';
 import Message from './message';
 
-import notificationTemplate from 'raw!./template.html';
+import notificationTemplate from './template';
 import { onAnimationEnd } from './animate';
 
 const DEFAULT_OPTIONS = {
@@ -33,7 +31,7 @@ class Notifications {
     this.config = merge({}, DEFAULT_OPTIONS, options);
     this.messages = [];
     this.targetElement = document.querySelector(this.config.targetDOMElement);
-    this.templateFn = template(this.config.template);
+    this.templateFn = this.config.template
 
     if (!!this.config.pusher.instance) {
       this.bindPusher(this.config.pusher);

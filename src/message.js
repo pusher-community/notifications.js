@@ -17,6 +17,7 @@ class Message {
     this.closeAfter = closeAfter;
     this.animations = animations;
     this.notificationClasses = notificationClasses;
+    this.text = text;
 
     this.element = this.makeElement({
       template,
