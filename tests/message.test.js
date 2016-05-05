@@ -31,3 +31,12 @@ test('it uses the given template function to generate the HTML', t => {
   instance.push('hello');
   t.is(instance.messages[0].element.innerHTML, 'Hello World');
 });
+
+test('you can apply CSS on a per message basis', t => {
+  const instance = new Notifications({ shouldRender: false });
+  instance.push('hello', {
+    classes: ['warning']
+  });
+
+  t.true(instance.messages[0].element.classList.contains('warning'));
+});

@@ -45,12 +45,12 @@ class Notifications {
     });
   }
 
-  createNewMessage(text) {
+  createNewMessage(text, extraClasses = []) {
     const message = new Message({
       text,
       target: this.targetElement,
       template: this.templateFn,
-      notificationClasses: this.config.notificationClasses,
+      notificationClasses: [...this.config.notificationClasses, ...extraClasses],
       onClose: this.config.onClose,
       closeAfter: this.config.closeAfter,
       animations: this.config.animations
@@ -65,8 +65,8 @@ class Notifications {
     }
   }
 
-  push(text) {
-    this.createNewMessage(text);
+  push(text, { classes = [] } = {}) {
+    this.createNewMessage(text, classes);
   }
 }
 
