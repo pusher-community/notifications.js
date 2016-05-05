@@ -2,18 +2,24 @@
   "name": "notificationsjs",
   "version": "0.0.1",
   "description": "Coming soon...",
-  "main": "index.js",
+  "main": "lib/notifications.js",
   "scripts": {
     "webpack-dev": "webpack -w --config webpack.dev.js",
-    "example-dev": "live-server --port=8001"
+    "example-dev": "live-server --port=8001",
+    "webpack-prod": "webpack --progress --config webpack.prod.js",
+    "prepublish": "npm run webpack-prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pusher-community/notifications.js.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "notifications",
+    "pusher",
+    "notify"
+  ],
+  "author": "Jack Franklin",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pusher-community/notifications.js/issues"
   },

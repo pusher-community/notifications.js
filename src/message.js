@@ -2,10 +2,11 @@ import { onAnimationEnd } from './animate';
 
 class Message {
   constructor({
-    string,
+    text,
     target,
     template,
     notificationClasses,
+    animations,
     onClose = () => {},
     closeAfter
   }) {
@@ -14,11 +15,34 @@ class Message {
     this.target = target;
     this.onClose = onClose;
     this.closeAfter = closeAfter;
+    this.animations = animations;
+    this.notificationClasses = notificationClasses;
 
+    this.element = this.makeElement({
+      template,
+      notificationClasses,
+      animations,
+      text
+    });
+  }
+
+  makeElement({
+    template,
+    notificationClasses,
+    animations,
+    text
+  }) {
     const div = document.createElement('div');
+
     div.classList.add(...notificationClasses);
-    div.innerHTML = template({ text: string });
-    this.element = div;
+
+    if (this.animations.on) {
+      div.classList.add('animated', animations.animateInClasses);
+    }
+
+    div.innerHTML = template({ text });
+
+    return div;
   }
 
   bindOnClose() {
@@ -53,7 +77,7 @@ class Message {
         this.target.removeChild(this.element);
       });
 
-      this.element.classList.add('fadeOut', 'animated');
+      this.element.classList.add(...this.animations.animateOutClasses);
     }
   }
 }

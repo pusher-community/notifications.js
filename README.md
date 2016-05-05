@@ -1,8 +1,63 @@
 # Notifications.js
 
-Coming soon...
+A library for easily adding notifications to a web site or application.
 
-# API
+It can be integrated easily with [Pusher](http://pusher.com) but can also be used entirely independently.
+
+It has one dependency, animate.css, and this can be ignored if you wish to provide your own CSS and animations.
+
+Notifications.js is designed to be effortless to set up and easy to customise as required.
+
+# Getting Started
+
+We'll presume for now that you want to use the built in CSS styles that Notifications.js provides. See "Custom CSS" for how to use your own.
+
+You can install NotificationsJS in a number of ways:
+
+1. Grab the built version from the `lib` directory of this repository. NotificationsJS will expose `window.Notifications`. You'll also need to install animate.css and grab `lib/style.css` too.
+2. Install through npm: `npm install --save notificationsjs`. This includes animate.css and the default CSS styles.
+```
+
+Now you can create a new instance of Notifications:
+
+```javascript
+// require / import Notifications or use the global.
+var notifications = new Notifications({
+});
+```
+
+Finally you need to setup your HTML page.
+
+Include animate.css (`node_modules/animate.css/animate.min.css`) and the default styling (`node_modules/notificationsjs/lib/style.css`) and add a `div` with an ID of `notifications`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notifications</title>
+    <link rel="stylesheet" type="text/css" href="path/to/style.css" />
+    <link rel="stylesheet" type="text/css" href="path/to/animate.css" />
+  </head>
+  <body>
+    <div id="notifications"></div>
+    <script src="your-javascript.js"></script>
+  </body>
+</html>
+```
+
+Now you can add a notification with the `push` method:
+
+```javascript
+// require / import Notifications or use the global.
+var notifications = new Notifications({
+});
+notifications.push('Hello World');
+```
+
+If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.
+
+
+# Full API Documentation
 
 ```js
 
@@ -33,7 +88,6 @@ var notifications = new Notifications({
     channelName: 'notifications',
     eventName: 'new-notification',
     // used to tell Notification.js what string to show in the notification, from the Pusher event
-    // you could also return a DOM Element here instead
     transform: function(event) {
       return 'New message: ' + event.text;
     }
@@ -45,11 +99,6 @@ var notifications = new Notifications({
 notifications.push('This is a new message');
 
 // general API
-
-notifications.getLatest(); // get the latest message
-notifications.getAll(); // get an array of all the messages
-notifications.clear(); // remove all notifications
-
 notifications.onNewMessage(function() {
   // do something when a new message is added
   // this will be useful for hooking into other libraries (React, etc)

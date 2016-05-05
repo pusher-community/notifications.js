@@ -10,6 +10,11 @@ const DEFAULT_OPTIONS = {
   targetDOMElement: '#notifications',
   closeAfter: 5000,
   notificationClasses: ['notification'],
+  animations: {
+    on: true,
+    animateInClasses: ['fadeIn'],
+    animateOutClasses: ['fadeOut']
+  },
   onClose: () => {},
   onShow: () => {},
   onNewMessage: (message) => {},
@@ -33,12 +38,13 @@ class Notifications {
 
   push(data) {
     const message = new Message({
-      string: data,
+      text: data,
       target: this.targetElement,
       template: this.templateFn,
       notificationClasses: this.config.notificationClasses,
       onClose: this.config.onClose,
-      closeAfter: this.config.closeAfter
+      closeAfter: this.config.closeAfter,
+      animations: this.config.animations
     });
 
     this.messages.push(message);
