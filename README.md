@@ -79,6 +79,21 @@ You'll need to include Pusher either from npm or using a script tag. Notificatio
 
 # Full API Documentation
 
+## Configuration Options
+
+These are passed as an object to `new Notification({...})`. The shown values below are the default.
+
+- `targetDOMElement: '#notifications'`: the selector for the containing element that the notifications will be placed in.
+- `closeAfter: 5000`: the time in milliseconds before a notification will close itself. Set this to 0 to make notifications never close automatically.
+- `animations`: An object with three options:
+    - `on: true`: whether to use animate.css to animate items in and out.
+    - `animateInClasses: ['fadeIn']`: the classes to apply to animate a notification in.
+    - `animateOutClasses: ['fadeOut']`: the classes to apply to animate a notification out
+```javascript
+
+
+
+
 ```js
 
 var pusher = new Pusher(...);
