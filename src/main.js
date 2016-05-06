@@ -31,6 +31,9 @@ class Notifications {
     this.config = objectAssign({}, DEFAULT_OPTIONS, options);
     this.messages = [];
     this.targetElement = document.querySelector(this.config.targetDOMElement);
+    if (!this.targetElement && this.config.shouldRender) {
+      throw new Error(`Element with selector ${this.config.targetDOMElement} was not found`);
+    }
     this.templateFn = this.config.template
 
     if (!!this.config.pusher.instance) {

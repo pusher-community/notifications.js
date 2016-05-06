@@ -48,6 +48,9 @@
     "files": [
       "tests/*.test.js"
     ],
+    "source": [
+      "src/*.js"
+    ],
     "babel": "inherit",
     "verbose": true,
     "require": [

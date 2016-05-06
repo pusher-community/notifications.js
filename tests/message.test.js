@@ -3,7 +3,7 @@ import { Double } from 'doubler';
 import Notifications from '../src/main';
 
 test('Animate.css usage is on by default', t => {
-  const instance = new Notifications();
+  const instance = new Notifications({ shouldRender: false });
   t.true(instance.config.animations.on);
 });
 
