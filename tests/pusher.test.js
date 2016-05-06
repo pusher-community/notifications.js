@@ -7,7 +7,7 @@ const fakePusher = {
       bind(_, cb) {
         fakePusher.cb = cb;
       }
-    }
+    };
   },
   call(data) {
     this.cb(data);

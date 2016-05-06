@@ -9,8 +9,9 @@
     "webpack-prod": "webpack --progress --config webpack.prod.js",
     "build": "npm run webpack-prod && cp src/style.css lib",
     "prepublish": "npm run build",
-    "test": "ava --tap | tap-dot",
-    "test-watch": "ava --watch"
+    "test": "npm run lint && ava --tap | tap-dot",
+    "test-watch": "ava --watch",
+    "lint": "eslint src tests"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "babel-preset-node6": "11.0.0",
     "babel-register": "6.8.0",
     "doubler": "0.6.0",
+    "eslint": "2.9.0",
     "jsdom": "8.5.0",
     "live-server": "^1.0.0",
     "object-assign": "4.1.0",

@@ -2,7 +2,6 @@ import objectAssign from 'object-assign';
 import Message from './message';
 
 import notificationTemplate from './template';
-import { onAnimationEnd } from './animate';
 
 const DEFAULT_OPTIONS = {
   targetDOMElement: '#notifications',
@@ -15,7 +14,7 @@ const DEFAULT_OPTIONS = {
   },
   onClose: () => {},
   onShow: () => {},
-  onNewMessage: (message) => {},
+  onNewMessage: () => {},
   pusher: {
     instance: null,
     channelName: '',
@@ -34,9 +33,9 @@ class Notifications {
     if (!this.targetElement && this.config.shouldRender) {
       throw new Error(`Element with selector ${this.config.targetDOMElement} was not found`);
     }
-    this.templateFn = this.config.template
+    this.templateFn = this.config.template;
 
-    if (!!this.config.pusher.instance) {
+    if (this.config.pusher.instance) {
       this.bindPusher(this.config.pusher);
     }
   }

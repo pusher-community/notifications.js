@@ -12,4 +12,4 @@ export function onAnimationEnd(elem, callback) {
 
 function addMultipleListeners(elem, callback, ...evts) {
   evts.forEach(e => elem.addEventListener(e, callback));
-};
+}
