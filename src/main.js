@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import objectAssign from 'object-assign';
 import Message from './message';
 
 import notificationTemplate from './template';
@@ -28,7 +28,7 @@ const DEFAULT_OPTIONS = {
 
 class Notifications {
   constructor(options) {
-    this.config = merge({}, DEFAULT_OPTIONS, options);
+    this.config = objectAssign({}, DEFAULT_OPTIONS, options);
     this.messages = [];
     this.targetElement = document.querySelector(this.config.targetDOMElement);
     this.templateFn = this.config.template

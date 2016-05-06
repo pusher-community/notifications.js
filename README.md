@@ -55,6 +55,8 @@ notifications.push('Hello World');
 
 If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.
 
+You can also [see an example on JSBin](http://jsbin.com/dewiyekoku/edit?html,js,output).
+
 # Using Pusher for Notifications
 
 If you want your notifications to be powered by events on a Pusher channel then you can supply the library with your instance of Pusher and tell it which events to listen to:
