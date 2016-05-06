@@ -72,6 +72,4 @@ class Notifications {
   }
 }
 
-// use this so it gets exported correctly as a global
-// without the need for Notifications.default
 export default Notifications;
