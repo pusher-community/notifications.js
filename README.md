@@ -142,6 +142,11 @@ notifications.push('New message', {
 
 ## Changelog
 
+
+### 0.1.1
+- builds generated with Rollup
+- pass classes into `push` so you can customise classes on a per notification basis
+
 ### 0.1.0
 - initial release!
 
