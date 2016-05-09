@@ -3,7 +3,7 @@ const template = function({ text }) {
   <div>
     ${text}
 
-    <a href="" class="notification-close" data-notifications-close>&times;</a>
+    <button class="notification__close" data-notifications-close>&times;</button>
   </div>
   `;
 };
