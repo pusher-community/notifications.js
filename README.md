@@ -8,6 +8,8 @@ It has one dependency, animate.css, and this can be ignored if you wish to provi
 
 Notifications.js is designed to be effortless to set up and easy to customise as required.
 
+![](http://i.imgur.com/wdwyPWf.png)
+
 # Getting Started
 
 We'll presume for now that you want to use the built in CSS styles that Notifications.js provides. See "Custom CSS" for how to use your own.

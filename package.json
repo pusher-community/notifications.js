@@ -7,7 +7,7 @@
     "build-dev": "webpack -w --config webpack.dev.js",
     "example-dev": "live-server --port=8001",
     "build-prod": "rollup --config rollup.config.js && rollup --config rollup.config.js --environment MINIFY",
-    "build": "npm run build-prod && cp src/style.css lib",
+    "build": "npm run build-prod",
     "prepublish": "npm run build",
     "test": "npm run lint && ava --tap | tap-dot",
     "test-watch": "ava --watch",
