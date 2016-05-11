@@ -145,6 +145,9 @@ notifications.push('New message', {
 ## Changelog
 
 
+### 0.1.2
+- nicer default CSS styling
+
 ### 0.1.1
 - builds generated with Rollup
 - pass classes into `push` so you can customise classes on a per notification basis
