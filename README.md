@@ -57,7 +57,7 @@ notifications.push('Hello World');
 
 If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.
 
-You can also [see an example on JSBin](http://jsbin.com/dewiyekoku/edit?html,js,output).
+You can also [see an example on JSBin](http://jsbin.com/luwetapelo/edit?html,js,output).
 
 If you'd like an example of using the library through npm and browserify, [check out the getting started repon](https://github.com/pusher-community/notifications.js-getting-started).
 
