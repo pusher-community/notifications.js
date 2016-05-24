@@ -8,7 +8,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel='stylesheet' type='text/css' href='https://rawgit.com/daneden/animate.css/master/animate.css' />
-    <link rel='stylesheet' type='text/css'  href='https://rawgit.com/pusher-community/notifications.js/master/lib/style.css' />
   </head>
   <body>
     <div id="notifications"></div>
@@ -88,7 +87,8 @@ new Notifications({
             <code>
 new Notifications({
   template: function(notification) {
-    return '&lt;div class="notification"&gt;' + notification.text + '&lt;/div&gt;';
+    return '&lt;div class="notification"&gt;'
+      + notification.text + '&lt;/div&gt;';
   }
 });
             </code>
@@ -99,9 +99,62 @@ new Notifications({
 
     </section> 
 
+    <section class="api-docs">
+      <h3 id="getting-started">Getting Started</h3>
+      <p>You can install NotificationsJS in a number of ways:</p>
+
+      <ol>
+        <li>
+          Grab the built version from the lib directory of this repository. NotificationsJS will expose <code>window.Notifications</code>. You'll also need to install animate.css and grab lib/style.css too.
+        </li>
+        <li>
+          Install through npm: <code>npm install --save notificationsjs</code>. This includes animate.css and the default CSS styles.
+        </li>
+      </ol>
+      <p>Now you can create a new instance of Notifications:</p>
+
+      <pre><code>// require / import Notifications or use the global.
+var notifications = new Notifications({
+}); </code></pre>
+
+      <p>Finally you need to setup your HTML page.</p>
+
+      <p>
+        Include animate.css and the default styling and add a <code>div</code> with an ID of <code>notifications</code>:
+      </p>
+
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Notifications&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="path/to/style.css" /&gt;
+  &lt;link rel="stylesheet" type="text/css" href="path/to/animate.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="notifications"&gt;&lt;/div&gt;
+  &lt;script src="your-javascript.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <p>Now you can add a notification with the push method:</p>
+
+      <pre><code>var notifications = new Notifications({});
+notifications.push('Hello World');</code></pre>
+
+      <p>If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.</p>
+
+      <p>You can also see an example on <a href="http://jsbin.com/luwetapelo/edit?html,js,output">JSBin.</a></p>
+
+      <p>If you'd like an example of using the library through npm and browserify, check out the <a href="https://github.com/pusher-community/notifications.js-getting-started">getting started example repository</a>.</p>
+
+      <h3>Next Steps</h3>
+
+      <p>Check out the <a href="/api.html">API docs</a> to learn fully about how to customise and use Notifications.js.</p>
+    </section>
+
 
     <footer class="site-footer">
-      <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="https://github.com/pusher-community">pusher-community</a>.</span>
+      <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="http://pusher.com">Pusher</a>. Questions or problems? <a href="http://twitter.com/pusher">Tweet @pusher</a>.</span>
     </footer>
 
     <script src='https://rawgit.com/pusher-community/notifications.js/master/lib/notifications.js'></script>
