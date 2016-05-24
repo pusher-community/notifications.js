@@ -2,12 +2,11 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Notifications.js by pusher-community</title>
+    <title>NotificationsJS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel='stylesheet' type='text/css' href='https://rawgit.com/daneden/animate.css/master/animate.css' />
     <link rel='stylesheet' type='text/css'  href='https://rawgit.com/pusher-community/notifications.js/master/lib/style.css' />
   </head>
@@ -15,9 +14,7 @@
     <div id="notifications"></div>
     <section class="page-header">
       <h1 class="project-name">Notifications.js</h1>
-      <h2 class="project-tagline"></h2>
       <a href="https://github.com/pusher-community/notifications.js" class="btn">View on GitHub</a>
-      <a href="https://github.com/pusher-community/notifications.js/zipball/master" class="btn">Download .zip</a>
     </section>
 
     <section class="main-content">
@@ -26,37 +23,88 @@
       <p>Notifications.js makes it really easy to add notifications to your website that are entirely customisable in every way.</p>
 
       <p>Try it out by <a href='#' class='js-demo-button'>clicking here</a> to trigger a notification. Although the library provides a default template and CSS style for notifications it's easy to customise both of these to tailor the look and behaviour to your liking.</p>
-      <p>Notifications.js weighs in at just <strong>6kb</strong> and comes with just one optional dependency, animate.css.</p>
 
-      <h3>Integration with Pusher</h3>
+      <div class="feature">
+        <div class="img-container">
+          <img src="http://placehold.it/350" alt="" />
+        </div>
+        <div class="text-container">
+          <h3>Lightweight, cross browser notifications</h3>
+          <p>Notifications.js weighs in at just <strong>6kb</strong> and comes with just one optional dependency, animate.css.</p>
 
-      <p>If you're powering your realtime notifications through <a href="https://pusher.com">Pusher</a> you can integrate your Pusher events into Notifications.js easily. Notifications.js will listen for events and display them when they are sent from Pusher.</p>
+          <p>If you're using another CSS library for animations it's easy to use that instead and avoid any additional dependencies.</p>
 
-      <h3>
-        <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+          <p>Notifications.js is tested across all modern browsers and has browser support for IE8+ and the latest versions of Chrome, Safari, Firefox and Opera.</p>
+        </div>
+      </div>
 
-      <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+      <div class="feature right">
+        <div class="img-container">
+          <img src="http://placehold.it/350" alt="" />
+        </div>
+        <div class="text-container">
+          <h3>Easy API for sending notifications</h3>
+          <p>Use the <code>push</code> method to create a notification.</p>
+          <pre>
+            <code>
+var notifications = new Notifications({});
+notifications.push('Hello World');
+            </code>
+          </pre>
+        </div>
+      </div>
 
-      <h3>
-        <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+      <div class="feature">
+        <div class="img-container">
+          <img src="http://placehold.it/350" alt="" />
+        </div>
+        <div class="text-container">
+          <h3>Integrate easily with Pusher</h3>
+          <p>If you're using Pusher to power realtime notifications you can easily integrate Notifications.js.</p>
+          <pre>
+            <code>
+var pusher = new Pusher('PUSHER_APP_KEY');
+new Notifications({
+  pusher: {
+    instance: pusher,
+    channelName: 'notifications',
+    eventName: 'new-notification',
+    transform: function(evt) { return evt.text }
+  }
+});
+            </code>
+          </pre>
+        </div>
+      </div>
 
-      <p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+      <div class="feature right">
+        <div class="img-container">
+          <img src="http://placehold.it/350" alt="" />
+        </div>
+        <div class="text-container">
+          <h3>HTML and CSS fully customisable</h3>
+          <p>You can fully configure the HTML and CSS that are used to put the notifications on the page. Notifications.js ships with a default template and CSS style but it can be easily swapped out for your own.</p>
+          <pre>
+            <code>
+new Notifications({
+  template: function(notification) {
+    return '&lt;div class="notification"&gt;' + notification.text + '&lt;/div&gt;';
+  }
+});
+            </code>
+          </pre>
+        </div>
+      </div>
 
-      <h3>
-        <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-      <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+    </section> 
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="https://github.com/pusher-community">pusher-community</a>.</span>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
+    <footer class="site-footer">
+      <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="https://github.com/pusher-community">pusher-community</a>.</span>
+    </footer>
 
     <script src='https://rawgit.com/pusher-community/notifications.js/master/lib/notifications.js'></script>
     <script src='demo.js'></script>
-
   </body>
 </html>
