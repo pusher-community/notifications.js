@@ -92,6 +92,26 @@ code {
   padding: 10px 20px;
 }
 
+.nav {
+  width: 437px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.nav li {
+  list-style: disc;
+  float: left;
+  margin-right: 30px;
+}
+
+.nav li:first-of-type {
+  list-style: none;
+}
+
+.nav li:last-of-type {
+  margin: 0;
+}
+
 
 
 /* Notifications styling */

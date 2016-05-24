@@ -1,4 +1,5 @@
 var notifications = new Notifications({
+  closeAfter: 10000
 });
 
 notifications.push('Welcome to Notifications.js');
