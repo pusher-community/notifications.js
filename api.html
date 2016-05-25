@@ -5,154 +5,112 @@
     <title>NotificationsJS API Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>NotificationsJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel='stylesheet' type='text/css' href='https://rawgit.com/daneden/animate.css/master/animate.css' />
   </head>
   <body>
+    <div id="notifications"></div>
     <section class="page-header">
       <h1 class="project-name">Notifications.js</h1>
-      <a href="https://github.com/pusher-community/notifications.js" class="btn">View on GitHub</a>
+      <ul class='nav'>
+        <li><a href="/" class="btn">Getting Started</a></li>
+        <li><a href="/api.html" class="btn">Full API Docs</a></li>
+        <li><a href="https://github.com/pusher-community/notifications.js" class="btn">View on GitHub</a></li>
+        <li><a href="http://npmjs.org/packages/notificationsjs" class="btn">View on npm</a></li>
+      </ul>
     </section>
 
     <section class="main-content">
-      <h3>Easy Notifications with Notifications.js</h3>
+      <h3>API Documentation</h3>
 
-      <p>Notifications.js makes it really easy to add notifications to your website that are entirely customisable in every way.</p>
+      <p>This page contains the full documentation for Notifications.js. If you're new to the project you might prefer the <a href="/">getting started</a> documentation before reading these docs.</p>
 
-      <p>Try it out by <a href='#' class='js-demo-button'>clicking here</a> to trigger a notification. Although the library provides a default template and CSS style for notifications it's easy to customise both of these to tailor the look and behaviour to your liking.</p>
+      <h3 id="configuration-options">Configuration Options</h3>
 
-      <div class="feature">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
-        <div class="text-container">
-          <h3>Lightweight, cross browser notifications</h3>
-          <p>Notifications.js weighs in at just <strong>6kb</strong> and comes with just one optional dependency, animate.css.</p>
+      <p>NotificationsJS comes with a number of configuration options, all of which are documented below. These are passed in when creating an instance of the library:</p>
 
-          <p>If you're using another CSS library for animations it's easy to use that instead and avoid any additional dependencies.</p>
-
-          <p>Notifications.js is tested across all modern browsers and has browser support for IE8+ and the latest versions of Chrome, Safari, Firefox and Opera.</p>
-        </div>
-      </div>
-
-      <div class="feature right">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
-        <div class="text-container">
-          <h3>Easy API for sending notifications</h3>
-          <p>Use the <code>push</code> method to create a notification.</p>
-          <pre>
-            <code>
-var notifications = new Notifications({});
-notifications.push('Hello World');
-            </code>
-          </pre>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
-        <div class="text-container">
-          <h3>Integrate easily with Pusher</h3>
-          <p>If you're using Pusher to power realtime notifications you can easily integrate Notifications.js.</p>
-          <pre>
-            <code>
-var pusher = new Pusher('PUSHER_APP_KEY');
-new Notifications({
-  pusher: {
-    instance: pusher,
-    channelName: 'notifications',
-    eventName: 'new-notification',
-    transform: function(evt) { return evt.text }
-  }
-});
-            </code>
-          </pre>
-        </div>
-      </div>
-
-      <div class="feature right">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
-        <div class="text-container">
-          <h3>HTML and CSS fully customisable</h3>
-          <p>You can fully configure the HTML and CSS that are used to put the notifications on the page. Notifications.js ships with a default template and CSS style but it can be easily swapped out for your own.</p>
-          <pre>
-            <code>
-new Notifications({
-  template: function(notification) {
-    return '&lt;div class="notification"&gt;'
-      + notification.text + '&lt;/div&gt;';
-  }
-});
-            </code>
-          </pre>
-        </div>
-      </div>
+      <pre><code>new Notifications({options here});</code></pre>
 
 
-    </section> 
-
-    <section class="api-docs">
-      <h3 id="getting-started">Getting Started</h3>
-      <p>You can install NotificationsJS in a number of ways:</p>
-
-      <ol>
+      <ul class="api-options">
         <li>
-          Grab the built version from the lib directory of this repository. NotificationsJS will expose <code>window.Notifications</code>. You'll also need to install animate.css and grab lib/style.css too.
+          <code>targetDOMElement</code>
+          <ul>
+            <li>Default value: <code>'#notifications'</code></li>
+            <li>This is a selector used to find the DOM element that notifications should be created in.</li>
+          </ul>
         </li>
         <li>
-          Install through npm: <code>npm install --save notificationsjs</code>. This includes animate.css and the default CSS styles.
+          <code>closeAfter</code>
+          <ul>
+            <li>Default value: <code>5000</code></li>
+            <li>The time in milliseconds before a notification will close. Set this value to <code>0</code> to make notifications never close.</li>
+          </ul>
         </li>
-      </ol>
-      <p>Now you can create a new instance of Notifications:</p>
-
-      <pre><code>// require / import Notifications or use the global.
-var notifications = new Notifications({
-}); </code></pre>
-
-      <p>Finally you need to setup your HTML page.</p>
-
-      <p>
-        Include animate.css and the default styling and add a <code>div</code> with an ID of <code>notifications</code>:
-      </p>
-
-      <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Notifications&lt;/title&gt;
-  &lt;link rel="stylesheet" type="text/css" href="path/to/style.css" /&gt;
-  &lt;link rel="stylesheet" type="text/css" href="path/to/animate.css" /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id="notifications"&gt;&lt;/div&gt;
-  &lt;script src="your-javascript.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-      <p>Now you can add a notification with the push method:</p>
-
-      <pre><code>var notifications = new Notifications({});
-notifications.push('Hello World');</code></pre>
-
-      <p>If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.</p>
-
-      <p>You can also see an example on <a href="http://jsbin.com/luwetapelo/edit?html,js,output">JSBin.</a></p>
-
-      <p>If you'd like an example of using the library through npm and browserify, check out the <a href="https://github.com/pusher-community/notifications.js-getting-started">getting started example repository</a>.</p>
-
-      <h3>Next Steps</h3>
-
-      <p>Check out the <a href="/api.html">API docs</a> to learn fully about how to customise and use Notifications.js.</p>
+        <li>
+          <code>onClose</code>
+          <ul>
+            <li>Default value: <code>function() {}</code></li>
+            <li>A function called when a notification is closed, so you can run some extra code.</li>
+          </ul>
+        </li>
+        <li>
+          <code>onShow</code>
+          <ul>
+            <li>Default value: <code>function() {}</code></li>
+            <li>A function called when a notification is shown, so you can run some extra code.</li>
+          </ul>
+        </li>
+        <li>
+          <code>onNewMessage</code>
+          <ul>
+            <li>Default value: <code>function(message) {}</code></li>
+            <li>A function called when a new notification is added. This function gets given the message object.</li>
+          </ul>
+        </li>
+        <li>
+          <code>shouldRender</code>
+          <ul>
+            <li>Default value: <code>true</code></li>
+            <li>Set this to <code>false</code> to stop Notifications.js rendering to the screen. Useful if you want to use this library for your notifications logic but pass rendering to a framework such as React.</li>
+          </ul>
+        </li>
+        <li>
+          <code>animations</code>
+          <p>This is an object with three properties within it.</p>
+          <ul>
+            <li><code>on: true</code>. Set to <code>false</code> to stop any animations.</li>
+            <li><code>animateInClasses: ['fadeIn']</code>. An array of classes to add to a notification to animate it in.</li>
+            <li><code>animateOutClasses: ['fadeOut']</code>. An array of classes to add to a notification to animate it out.</li>
+          </ul>
+        </li>
+        <li>
+          <code>pusher</code>
+          <p>This is an object used to configure your Pusher integration. See below for more information on this.</p>
+          <ul>
+            <li><code>instance: null</code>. The instance of PusherJS that you have on your page..</li>
+            <li><code>channelName: ''</code>. The channel name that Notifications.js should subscribe to.</li>
+            <li><code>eventName: ''</code>. The event name that Notifications.js should listen for.</li>
+            <li><code>transform: function(event) {}</code>. This function is called with the data from the Pusher event and should return a string which will be used as the text for the notification.</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
 
     <footer class="site-footer">
       <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="http://pusher.com">Pusher</a>. Questions or problems? <a href="http://twitter.com/pusher">Tweet @pusher</a>.</span>
     </footer>
+
+    <script src='https://rawgit.com/pusher-community/notifications.js/master/lib/notifications.js'></script>
+    <script src='demo.js'></script>
   </body>
 </html>

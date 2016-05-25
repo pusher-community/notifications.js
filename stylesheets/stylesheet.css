@@ -87,13 +87,14 @@ code {
   font-family: 'Monaco', 'Courier', monospace;
 }
 
+.main-content pre,
 .api-docs pre {
   background: #eee;
   padding: 10px 20px;
 }
 
 .nav {
-  width: 437px;
+  width: 577px;
   margin: 0 auto;
   overflow: auto;
 }
@@ -110,6 +111,24 @@ code {
 
 .nav li:last-of-type {
   margin: 0;
+}
+
+.api-options {
+  list-style: none;
+  padding: 0;
+}
+
+.api-options > li > code {
+  font-size: 20px;
+}
+
+.api-options > li {
+  margin-bottom: 30px;
+}
+
+.api-options > li > ul {
+  padding: 4px 0 0 30px;
+  list-style: square;
 }
 
 
