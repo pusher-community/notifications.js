@@ -147,6 +147,9 @@ notifications.push('New message', {
 ## Changelog
 
 
+### 0.1.3
+- add `notifications.getMessages()`
+
 ### 0.1.2
 - nicer default CSS styling
 
