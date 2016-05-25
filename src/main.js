@@ -67,6 +67,10 @@ class Notifications {
     }
   }
 
+  getMessages() {
+    return this.messages;
+  }
+
   push(text, { classes = [] } = {}) {
     this.createNewMessage(text, classes);
   }

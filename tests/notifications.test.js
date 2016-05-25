@@ -6,3 +6,9 @@ test('it throws if the DOM element is not found', t => {
     new Notifications({});
   });
 });
+
+test('it lets you access the messages', t => {
+  const notifications = new Notifications({ shouldRender: false });
+  notifications.push('Hello World');
+  t.is(notifications.getMessages().length, 1);
+});
