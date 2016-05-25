@@ -14,10 +14,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel='stylesheet' type='text/css' href='https://rawgit.com/daneden/animate.css/master/animate.css' />
   </head>
   <body>
-    <div id="notifications"></div>
     <section class="page-header">
       <h1 class="project-name">Notifications.js</h1>
       <ul class='nav'>
@@ -84,6 +82,13 @@
           </ul>
         </li>
         <li>
+          <code>template</code>
+          <ul>
+            <li>Default value: <code>function(message) {...}</code></li>
+            <li>A function that should provide a string of HTML that will be used to create the notification. Is given an object containing the message.</li>
+          </ul>
+        </li>
+        <li>
           <code>animations</code>
           <p>This is an object with three properties within it.</p>
           <ul>
@@ -103,14 +108,25 @@
           </ul>
         </li>
       </ul>
+
+      <h3 id="api-methods">API Methods</h3>
+
+      <p>Once you've created an instance of the library, you have the following API methods available to you.</p>
+
+      <ul class="api-options">
+        <li>
+          <code>push(text, { classes: [] })</code>
+          <p>This is used to create a new notification. You can pass in an optional second object with the <code>classes</code> project that's used to give the notification an additional class.</p>
+          <pre><code>notifications.push('Hello World', {
+  classes: ['warning']
+});
+        </li>
+      </ul>
     </section>
 
 
     <footer class="site-footer">
       <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="http://pusher.com">Pusher</a>. Questions or problems? <a href="http://twitter.com/pusher">Tweet @pusher</a>.</span>
     </footer>
-
-    <script src='https://rawgit.com/pusher-community/notifications.js/master/lib/notifications.js'></script>
-    <script src='demo.js'></script>
   </body>
 </html>
