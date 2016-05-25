@@ -111,6 +111,8 @@
 
       <h3 id="api-methods">API Methods</h3>
 
+      <h5>Notifications.js methods</h5>
+
       <p>Once you've created an instance of the library, you have the following API methods available to you.</p>
 
       <ul class="api-options">
@@ -119,7 +121,29 @@
           <p>This is used to create a new notification. You can pass in an optional second object with the <code>classes</code> project that's used to give the notification an additional class.</p>
           <pre><code>notifications.push('Hello World', {
   classes: ['warning']
-});
+});</code></pre>
+        </li>
+        <li>
+          <code>getMessages()</code>
+          <p>Returns an array of messages. Note that messages are objects that Notifications.js creates and are documented below.</p>
+        </li>
+      </ul>
+
+      <h5>Message options</h5>
+
+      <p>Each message is wrapped as an instance of the <code>Message</code> class that Notifications.js creates. When you call `getMessage` or define `onNewMessage`, you are given instances of <code>Message</code>. <strong>You should never create these directly</strong>, but instead call <code>push</code>, as documented above.</p>
+
+      <p>Each message has the following properties:</p>
+
+      <ul class="api-options">
+        <li>
+          <code>text</code>
+          <p>This is the text used to create the notification.</p>
+          <pre><code>var notifications = new Notifications({
+  onNewMessage: function(message) {
+    console.log('New message', message)
+  }
+});</code></pre>
         </li>
       </ul>
     </section>
