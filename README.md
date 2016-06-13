@@ -59,7 +59,7 @@ If everything is set up correctly you should see the notification fade in, stay 
 
 You can also [see an example on JSBin](http://jsbin.com/luwetapelo/edit?html,js,output).
 
-If you'd like an example of using the library through npm and browserify, [check out the getting started repon](https://github.com/pusher-community/notifications.js-getting-started).
+If you'd like an example of using the library through npm and browserify, [check out the getting started repo](https://github.com/pusher-community/notifications.js-getting-started).
 
 # Using Pusher for Notifications
 
