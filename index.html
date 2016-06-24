@@ -53,8 +53,7 @@ notifications.push('Hello World');</code></pre>
         <div class="text-container">
           <h3>Integrate easily with Pusher</h3>
           <p>If you're using Pusher to power realtime notifications you can easily integrate Notifications.js.</p>
-          <pre>
-            <code class="language-javascript">var pusher = new Pusher('PUSHER_APP_KEY');
+          <pre><code class="language-javascript">var pusher = new Pusher('PUSHER_APP_KEY');
 new Notifications({
   pusher: {
     instance: pusher,
@@ -70,8 +69,7 @@ new Notifications({
         <div class="text-container">
           <h3>HTML and CSS fully customisable</h3>
           <p>You can fully configure the HTML and CSS that are used to put the notifications on the page. Notifications.js ships with a default template and CSS style but it can be easily swapped out for your own.</p>
-          <pre>
-            <code class="language-javascript">new Notifications({
+          <pre><code class="language-javascript">new Notifications({
   template: function(notification) {
     return '&lt;div class="notification"&gt;'
       + notification.text + '&lt;/div&gt;';
