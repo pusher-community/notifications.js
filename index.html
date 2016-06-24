@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel='stylesheet' type='text/css' href='https://rawgit.com/daneden/animate.css/master/animate.css' />
+    <link rel='stylesheet' type='text/css' href='stylesheets/prism.css' />
   </head>
   <body>
     <div id="notifications"></div>
@@ -29,9 +30,6 @@
       <p>Try it out by <a href='#' class='js-demo-button'>clicking here</a> to trigger a notification. Although the library provides a default template and CSS style for notifications it's easy to customise both of these to tailor the look and behaviour to your liking.</p>
 
       <div class="feature">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
         <div class="text-container">
           <h3>Lightweight, cross browser notifications</h3>
           <p>Notifications.js weighs in at just <strong>6kb</strong> and comes with just one optional dependency, animate.css.</p>
@@ -43,30 +41,22 @@
       </div>
 
       <div class="feature right">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
         <div class="text-container">
           <h3>Easy API for sending notifications</h3>
           <p>Use the <code>push</code> method to create a notification.</p>
           <pre>
-            <code>
+            <code class="language-javascript">
 var notifications = new Notifications({});
-notifications.push('Hello World');
-            </code>
-          </pre>
+notifications.push('Hello World');</code></pre>
         </div>
       </div>
 
       <div class="feature">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
         <div class="text-container">
           <h3>Integrate easily with Pusher</h3>
           <p>If you're using Pusher to power realtime notifications you can easily integrate Notifications.js.</p>
           <pre>
-            <code>
+            <code class="language-javascript">
 var pusher = new Pusher('PUSHER_APP_KEY');
 new Notifications({
   pusher: {
@@ -75,29 +65,22 @@ new Notifications({
     eventName: 'new-notification',
     transform: function(evt) { return evt.text }
   }
-});
-            </code>
-          </pre>
+}); </code></pre>
         </div>
       </div>
 
       <div class="feature right">
-        <div class="img-container">
-          <img src="http://placehold.it/350" alt="" />
-        </div>
         <div class="text-container">
           <h3>HTML and CSS fully customisable</h3>
           <p>You can fully configure the HTML and CSS that are used to put the notifications on the page. Notifications.js ships with a default template and CSS style but it can be easily swapped out for your own.</p>
           <pre>
-            <code>
+            <code class="language-javascript">
 new Notifications({
   template: function(notification) {
     return '&lt;div class="notification"&gt;'
       + notification.text + '&lt;/div&gt;';
   }
-});
-            </code>
-          </pre>
+});</code></pre>
         </div>
       </div>
 
@@ -118,7 +101,7 @@ new Notifications({
       </ol>
       <p>Now you can create a new instance of Notifications:</p>
 
-      <pre><code>// require / import Notifications or use the global.
+      <pre><code class="language-javascript">// require / import Notifications or use the global.
 var notifications = new Notifications({
 }); </code></pre>
 
@@ -128,7 +111,7 @@ var notifications = new Notifications({
         Include animate.css and the default styling and add a <code>div</code> with an ID of <code>notifications</code>:
       </p>
 
-      <pre><code>&lt;!DOCTYPE html&gt;
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Notifications&lt;/title&gt;
@@ -143,7 +126,7 @@ var notifications = new Notifications({
 
       <p>Now you can add a notification with the push method:</p>
 
-      <pre><code>var notifications = new Notifications({});
+      <pre><code class="language-javascript">var notifications = new Notifications({});
 notifications.push('Hello World');</code></pre>
 
       <p>If everything is set up correctly you should see the notification fade in, stay for five seconds and then fade out.</p>
@@ -163,6 +146,7 @@ notifications.push('Hello World');</code></pre>
     </footer>
 
     <script src='https://rawgit.com/pusher-community/notifications.js/master/lib/notifications.js'></script>
-    <script src='demo.js'></script>
+    <script src='javascripts/demo.js'></script>
+    <script src='javascripts/prism.js'></script>
   </body>
 </html>

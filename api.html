@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel='stylesheet' type='text/css' href='stylesheets/prism.css' />
   </head>
   <body>
     <section class="page-header">
@@ -35,8 +36,9 @@
 
       <p>NotificationsJS comes with a number of configuration options, all of which are documented below. These are passed in when creating an instance of the library:</p>
 
-      <pre><code>new Notifications({options here});</code></pre>
-
+      <pre><code class="language-javascript">new Notifications({
+  // options here
+});</code></pre>
 
       <ul class="api-options">
         <li>
@@ -117,9 +119,9 @@
 
       <ul class="api-options">
         <li>
-          <code>push(text, { classes: [] })</code>
+          <code class="language-javascript">push(text, { classes: [] })</code>
           <p>This is used to create a new notification. You can pass in an optional second object with the <code>classes</code> project that's used to give the notification an additional class.</p>
-          <pre><code>notifications.push('Hello World', {
+          <pre><code class="language-javascript">notifications.push('Hello World', {
   classes: ['warning']
 });</code></pre>
         </li>
@@ -139,7 +141,7 @@
         <li>
           <code>text</code>
           <p>This is the text used to create the notification.</p>
-          <pre><code>var notifications = new Notifications({
+          <pre><code class="language-javascript">var notifications = new Notifications({
   onNewMessage: function(message) {
     console.log('New message', message.text)
   }
@@ -152,5 +154,6 @@
     <footer class="site-footer">
       <span class="site-footer-owner"><a href="https://github.com/pusher-community/notifications.js">Notifications.js</a> is maintained by <a href="http://pusher.com">Pusher</a>. Questions or problems? <a href="http://twitter.com/pusher">Tweet @pusher</a>.</span>
     </footer>
+    <script src='javascripts/prism.js'></script>
   </body>
 </html>
