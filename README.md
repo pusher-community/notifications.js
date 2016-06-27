@@ -147,6 +147,9 @@ notifications.push('New message', {
 ## Changelog
 
 
+### 0.2.0
+- `onClose` and `onShow` are called even when `shouldRender` is `false`.
+
 ### 0.1.3
 - add `notifications.getMessages()`
 
