@@ -53,3 +53,17 @@ test('onNewMessage is called with the new message', t => {
   t.is(fn.callCount, 1);
   t.is(fn.args[0][0].text, 'hello');
 });
+
+test.cb('even when not rendering onClose is called', t => {
+  const fn = Double.function();
+  const instance = new Notifications({
+    shouldRender: false,
+    closeAfter: 10,
+    onClose: fn
+  });
+  instance.push('hello');
+  setTimeout(() => {
+    t.is(fn.callCount, 1);
+    t.end(null);
+  }, 15);
+});

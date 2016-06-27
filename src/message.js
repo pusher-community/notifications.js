@@ -10,7 +10,8 @@ class Message {
     notificationClasses,
     animations,
     onClose = () => {},
-    closeAfter
+    closeAfter,
+    shouldRender
   }) {
     this.rendered = false;
     this.removed = false;
@@ -21,6 +22,7 @@ class Message {
     this.notificationClasses = notificationClasses;
     this.text = text;
     this.index = indexCount++;
+    this.shouldRender = shouldRender;
 
     this.element = this.makeElement({
       template,
@@ -63,9 +65,11 @@ class Message {
 
   render() {
     if (this.rendered === false) {
-      this.target.insertBefore(this.element, this.target.firstChild);
-      this.rendered = true;
-      this.bindOnClose();
+      if (this.shouldRender) {
+        this.target.insertBefore(this.element, this.target.firstChild);
+        this.rendered = true;
+        this.bindOnClose();
+      }
 
       if (this.closeAfter !== 0) {
         setTimeout(() => {
@@ -77,7 +81,7 @@ class Message {
   }
 
   remove() {
-    if (!this.removed) {
+    if (!this.removed && this.shouldRender) {
 
       onAnimationEnd(this.element, () => {
         if (!this.removed) this.target.removeChild(this.element);

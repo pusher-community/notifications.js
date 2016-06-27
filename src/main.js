@@ -55,16 +55,14 @@ class Notifications {
       notificationClasses: [...this.config.notificationClasses, ...extraClasses],
       onClose: this.config.onClose,
       closeAfter: this.config.closeAfter,
-      animations: this.config.animations
+      animations: this.config.animations,
+      shouldRender: this.config.shouldRender
     });
 
     this.messages.push(message);
     this.config.onNewMessage(message);
-
-    if (this.config.shouldRender) {
-      message.render();
-      this.config.onShow(message);
-    }
+    message.render();
+    this.config.onShow(message);
   }
 
   getMessages() {
